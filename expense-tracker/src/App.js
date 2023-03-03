@@ -1,53 +1,34 @@
-import ExpenseItem from './components/ExpenseItem';
+import Expenses from './components/Expenses';
 
-const App = () => {
+function App() {
   const expenses = [
     {
-      expenseItemDate: new Date(2023, 2, 1),
-      expenseItemTitle: `Car Insurance`,
-      expenseItemPrice: '$200.00',
+      id: 'e1',
+      title: 'Toilet Paper',
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: 'e3',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
     },
     {
-      expenseItemDate: new Date(2023, 2, 1),
-      expenseItemTitle: `Bike Insurance`,
-      expenseItemPrice: '$20.00',
-    },
-    {
-      expenseItemDate: new Date(2023, 2, 1),
-      expenseItemTitle: `Home Insurance`,
-      expenseItemPrice: '$2000.00',
-    },
-    {
-      expenseItemDate: new Date(2023, 2, 1),
-      expenseItemTitle: `Life Insurance`,
-      expenseItemPrice: '$2000.00',
+      id: 'e4',
+      title: 'New Desk (Wooden)',
+      amount: 450,
+      date: new Date(2021, 5, 12),
     },
   ];
+
   return (
     <div>
-      <h2>Expense Tracker</h2>
-      <ExpenseItem
-        title={expenses[0].expenseItemTitle}
-        amount={expenses[0].expenseItemPrice}
-        date={expenses[0].expenseItemDate}
-      />
-      <ExpenseItem
-        title={expenses[1].expenseItemTitle}
-        amount={expenses[1].expenseItemPrice}
-        date={expenses[1].expenseItemDate}
-      />
-      <ExpenseItem
-        title={expenses[2].expenseItemTitle}
-        amount={expenses[2].expenseItemPrice}
-        date={expenses[2].expenseItemDate}
-      />
-      <ExpenseItem
-        title={expenses[3].expenseItemTitle}
-        amount={expenses[3].expenseItemPrice}
-        date={expenses[3].expenseItemDate}
-      />
+      <h2>Let's get started!</h2>
+      <Expenses items={expenses} />
     </div>
   );
-};
+}
 
 export default App;

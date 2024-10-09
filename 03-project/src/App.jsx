@@ -1,6 +1,7 @@
 import reactImg from './assets/react-core-concepts.png';
+import { CORE_CONCEPTS } from "./data";
 
-const aReactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+const aReactDescriptions = ["Fundamental", "Crucial", "Core"];
 function fnGetRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
@@ -17,12 +18,38 @@ function Header() {
     </header>
   );
 }
+
+function CoreConcept({ image, description, title }) {
+  return (
+    <li>
+      <img src={image}></img>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Core Concepts</h2>
+          <ul>
+            {CORE_CONCEPTS.map((each) => (
+              <CoreConcept
+                image={each.image}
+                description={each.description}
+                title={each.title}
+              />
+            ))}
+            <CoreConcept {...CORE_CONCEPTS[0]} />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
+          </ul>
+        </section>
       </main>
     </div>
   );
